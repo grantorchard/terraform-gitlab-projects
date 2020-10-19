@@ -15,7 +15,7 @@ resource "gitlab_project" "this" {
   description = var.project_description
 
   visibility_level = var.project_visibility_level
-  namespace_id     = var.create_group == false ? data.gitlab_group.this.id : gitlab_group.this.id
+  namespace_id     = var.create_group == false ? data.gitlab_group.this[0].id : gitlab_group.this[0].id
 
   initialize_with_readme = true
   issues_enabled         = true
