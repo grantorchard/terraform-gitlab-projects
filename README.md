@@ -1,0 +1,1 @@
+This module is a simple example of creating GitLab groups and projects, and then configuring and scoping Vault roles that leverage GitLab JWT authentication.
