@@ -25,3 +25,13 @@ variable project_visibility_level {
   type = string
   default = "private"
 }
+
+variable jwt_path {
+	type = string
+	default = "jwt"
+}
+
+variable token_policies {
+	type = list
+	default = ["static_creds"]
+}
