@@ -42,6 +42,6 @@ resource "gitlab_service_slack" "slack" {
   webhook              = var.slack_webhook
   push_events          = true
 	issues_events	       = true
-	merge_request_events = true
+	merge_requests_events = true
 	pipeline_events      = true
 }
