@@ -35,3 +35,8 @@ variable token_policies {
 	type = list
 	default = ["static_creds"]
 }
+
+variable slack_webhook {
+	type = string
+	default = ""
+}

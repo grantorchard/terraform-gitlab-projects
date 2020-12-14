@@ -36,3 +36,12 @@ resource "vault_jwt_auth_backend_role" "this" {
 		"project_id" = gitlab_project.this.id
 	}
 }
+
+resource "gitlab_service_slack" "slack" {
+  project              = gitlab_project.this.id
+  webhook              = var.slack_webhook
+  push_events          = true
+	issues_events	       = true
+	merge_request_events = true
+	pipeline_events      = true
+}
