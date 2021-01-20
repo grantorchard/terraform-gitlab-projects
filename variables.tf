@@ -40,3 +40,8 @@ variable slack_webhook {
 	type = string
 	default = ""
 }
+
+variable bound_claim_type {
+	type = string
+	default = "string"
+}

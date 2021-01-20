@@ -1,7 +1,3 @@
-locals {
-	jwt_path = var.jwt_path
-}
-
 data "gitlab_group" "this" {
   count     = var.create_group == false ? 1 : 0
   full_path = var.group_name
@@ -26,7 +22,7 @@ resource "gitlab_project" "this" {
 }
 
 resource "vault_jwt_auth_backend_role" "this" {
-  backend         = local.jwt_path
+  backend         = var.jwt_path
   role_name       = var.project_name
   token_policies  = var.token_policies
   user_claim      = "user_email"
@@ -35,6 +31,7 @@ resource "vault_jwt_auth_backend_role" "this" {
 		"namespace_path" = var.group_name
 		"project_id" = gitlab_project.this.id
 	}
+	bound_claims_type = var.bound_claims_type
 }
 
 resource "gitlab_service_slack" "slack" {
